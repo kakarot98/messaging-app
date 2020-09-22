@@ -1,0 +1,22 @@
+.sidebar {
+  flex: 0.3;
+}
+
+.sidebar-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  border-right: 1px solid lightgray;
+}
+
+.sidebar-headerIcons {
+  display: flex;
+  align-items: center;
+  min-width: 10vw;
+  justify-content: space-between;
+}
+
+.sidebar-headerIcons > .MuiSvgIcon-root {
+    font-size: 24px !important;
+    margin-right: 2vw;
+}

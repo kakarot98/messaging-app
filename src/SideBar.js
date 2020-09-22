@@ -1,11 +1,33 @@
-import React from 'react'
+import React from "react";
+import { Avatar, IconButton } from "@material-ui/core";
+import "./SideBar.css";
+import ChatRoundedIcon from "@material-ui/icons/ChatRounded";
+import DonutLargeRoundedIcon from "@material-ui/icons/DonutLargeRounded";
+import MoreVertRoundedIcon from "@material-ui/icons/MoreVertRounded";
 
 const SideBar = () => {
-    return (
-        <div className = "sidebar">
-            <h1>Sidebar</h1>
+  return (
+    <div className="sidebar">
+      <div className="sidebar-header">
+        <Avatar />
+        <div className="sidebar-headerIcons">
+          <IconButton>
+            <ChatRoundedIcon />
+          </IconButton>
+          <IconButton>
+            <DonutLargeRoundedIcon />
+          </IconButton>
+          <IconButton>
+            <MoreVertRoundedIcon />
+          </IconButton>
         </div>
-    )
-}
+      </div>
 
-export default SideBar
+      <div className="sidebar-search"></div>
+
+      <div className="sidebar-chats"></div>
+    </div>
+  );
+};
+
+export default SideBar;
