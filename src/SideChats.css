@@ -1,0 +1,19 @@
+.side-chat {
+   display: flex;
+   padding: 20px;
+   border-bottom: 1px solid rgb(243, 234, 234);
+   cursor: pointer;
+}
+
+.side-chat:hover{
+background-color:#d8d8d8;
+}
+
+.side-chat-info > h2 {
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.side-chat-info {
+    margin-left: 15px;
+}
