@@ -37,7 +37,13 @@ const Chat = () => {
                 </div>
             </div>
 
-            <div className="chat-body"></div>
+            <div className="chat-body">
+                
+                <p className={`chat-body-message ${true && "chat-receiver"}`}><span className="chat-body-message-name">Carrot</span>Hello
+
+                <span className="chat-body-message-timestamp">7:30PM</span>
+                </p>
+            </div>
 
             <div className="chat-footer"></div>
         </div>
