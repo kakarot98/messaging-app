@@ -13,14 +13,14 @@
 
 .sidebar-headerIcons {
   display: flex;
-  align-items: center;  
+  align-items: center;
   justify-content: space-between;
   min-width: 10vw;
 }
 
 .sidebar-headerIcons > .MuiSvgIcon-root {
-    font-size: 24px !important;
-    margin-right: 2vw;
+  font-size: 24px !important;
+  margin-right: 2vw;
 }
 
 .sidebar-search {
@@ -39,7 +39,7 @@
   border-radius: 20px;
 }
 
-.sidebar-search-container>input{
+.sidebar-search-container > input {
   border: none;
   margin-left: 10px;
 }
@@ -47,4 +47,10 @@
 .sidebar-search-container > .MuiSvgIcon-root {
   color: gray;
   padding: 10px;
+}
+
+.sidebar-chats {
+  flex: 1;
+  overflow: scroll;
+  background-color: white;
 }

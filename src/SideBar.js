@@ -5,6 +5,7 @@ import ChatRoundedIcon from "@material-ui/icons/ChatRounded";
 import DonutLargeRoundedIcon from "@material-ui/icons/DonutLargeRounded";
 import MoreVertRoundedIcon from "@material-ui/icons/MoreVertRounded";
 import SearchIcon from '@material-ui/icons/Search';
+import SideChats from './SideChats'
 
 const SideBar = () => {
   return (
@@ -33,7 +34,12 @@ const SideBar = () => {
         </div>
       </div>
 
-      <div className="sidebar-chats"></div>
+      <div className="sidebar-chats">
+        <SideChats />
+        <SideChats />
+        <SideChats />
+        <SideChats />
+      </div>
     </div>
   );
 };
