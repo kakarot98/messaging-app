@@ -10,7 +10,13 @@ const SideChats = ({ addNewChat }) => {
         setSeed(Math.floor(Math.random() * 5000))
     },[])
 
-    const createChat = () => {}
+    const createChat = () => {
+        const roomName = prompt("Please enter the name of chat room")
+
+        if(roomName){
+            //create room
+        }
+    }
 
     return !addNewChat ? (
         <div className="side-chat">
