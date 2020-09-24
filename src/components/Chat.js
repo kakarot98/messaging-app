@@ -14,7 +14,8 @@ const Chat = () => {
 
   const sendMessage = (e) => {
     e.preventDefault();
-    console.log("you typed the following message ->>>", typedMessage)
+    //kconsole.log("you typed the following message ->>>", typedMessage)
+    setTypedMessage("")
   };
 
   useEffect(() => {

@@ -2,12 +2,13 @@ import React, {useState,useEffect} from 'react'
 import './SideChats.css'
 import { Avatar } from '@material-ui/core'
 
-const SideChats = ({ addNewChat }) => {
+const SideChats = ({ id, name, addNewChat }) => {
 
     const [seed, setSeed] = useState('')
 
     useEffect(()=>{
         setSeed(Math.floor(Math.random() * 5000))
+        console.log(name)
     },[])
 
     const createChat = () => {
@@ -22,7 +23,7 @@ const SideChats = ({ addNewChat }) => {
         <div className="side-chat">
            <Avatar src={`https://avatars.dicebear.com/api/human/${seed}.svg`}/>
             <div className="side-chat-info">
-                <h2>Room name</h2>
+    <h2>{name}</h2>
                 <p>Last message...</p>
             </div>
         </div>
