@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./SideChats.css";
 import { Avatar } from "@material-ui/core";
 import db from '../firebase'
+import { Link } from 'react-router-dom'
 
 const SideChats = ({ id, name, addNewChat }) => {
   const [seed, setSeed] = useState("");
@@ -22,6 +23,7 @@ const SideChats = ({ id, name, addNewChat }) => {
   };
 
   return !addNewChat ? (
+    <Link to={`/rooms/${id}`}>
     <div className="side-chat">
       <Avatar src={`https://avatars.dicebear.com/api/human/${seed}.svg`} />
       <div className="side-chat-info">
@@ -29,6 +31,8 @@ const SideChats = ({ id, name, addNewChat }) => {
         <p>Last message...</p>
       </div>
     </div>
+    </Link>
+    
   ) : (
     <div onClick={createChat} className="side-chat">
       <h2>Add New Chat</h2>
