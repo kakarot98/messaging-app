@@ -9,22 +9,43 @@ import MicIcon from "@material-ui/icons/Mic";
 import InsertEmoticonIcon from "@material-ui/icons/InsertEmoticon";
 //import SendIcon from '@material-ui/icons/Send';
 import db from "../firebase";
+import firebase from "firebase";
+import { useStateValue } from "../StateProvider";
 
 const Chat = () => {
   const [seed, setSeed] = useState("");
   const [typedMessage, setTypedMessage] = useState("");
   const { roomId } = useParams();
   const [roomName, setRoomName] = useState("");
+  const [messages, setMessages] = useState([]);
+  const [{ user }, dispatch] = useStateValue();
 
   useEffect(() => {
-    db.collection("rooms")
-      .doc(roomId)
-      .onSnapshot((snapshot) => setRoomName(snapshot.data().name));
+    if (roomId) {
+      db.collection("rooms")
+        .doc(roomId)
+        .onSnapshot((snapshot) => setRoomName(snapshot.data().name));
+
+      db.collection("rooms")
+        .doc(roomId)
+        .collection("messages")
+        .orderBy("timestamp", "asc")
+        .onSnapshot((snapshot) =>
+          setMessages(snapshot.docs.map((doc) => doc.data()))
+        );
+    }
   }, [roomId]);
 
   const sendMessage = (e) => {
     e.preventDefault();
-    //kconsole.log("you typed the following message ->>>", typedMessage)
+    console.log("you typed the following message ->>>", typedMessage);
+
+    db.collection("rooms").doc(roomId).collection("messages").add({
+      message: typedMessage,
+      name: user.displayName,
+      timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+    });
+
     setTypedMessage("");
   };
 
@@ -56,10 +77,15 @@ const Chat = () => {
       </div>
 
       <div className="chat-body">
-        <p className={`chat-body-message ${true && "chat-receiver"}`}>
-          <span className="chat-body-message-name">Carrot</span>Hello
-          <span className="chat-body-message-timestamp">7:30PM</span>
-        </p>
+        {messages.map((message) => (
+          <p className={`chat-body-message ${message.name === user.displayName && "chat-receiver"}`}>
+            <span className="chat-body-message-name">{message.name}</span>
+            {message.message}
+            <span className="chat-body-message-timestamp">
+              {new Date(message.timestamp?.toDate()).toUTCString()}
+            </span>
+          </p>
+        ))}
       </div>
 
       <div className="chat-footer">
