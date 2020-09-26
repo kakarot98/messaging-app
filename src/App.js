@@ -4,10 +4,13 @@ import "./App.css";
 import Chat from "./components/Chat";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Login from './components/Login'
+import { useStateValue } from './StateProvider'
 
 function App() {
 
-  const [user, setUser] = useState(null)
+  const [{ user }, dispatch] = useStateValue()
+
+  //const [user, setUser] = useState(null)
 
   return (
     <div className="app">
