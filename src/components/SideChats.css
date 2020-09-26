@@ -5,6 +5,11 @@
    cursor: pointer;
 }
 
+a {
+    text-decoration: none !important;
+    color: black;
+}
+
 .side-chat:hover{
 background-color:#d8d8d8;
 }
