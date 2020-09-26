@@ -60,7 +60,12 @@ const Chat = () => {
 
         <div className="chat-header-info">
           <h2>{roomName}</h2>
-          <p>Last Seen...</p>
+          <p>
+            Room last active at{" "}
+            {new Date(
+              messages[messages.length - 1]?.timestamp?.toDate()
+            ).toUTCString()}
+          </p>
         </div>
 
         <div className="chat-header-right-icons">
@@ -78,7 +83,11 @@ const Chat = () => {
 
       <div className="chat-body">
         {messages.map((message) => (
-          <p className={`chat-body-message ${message.name === user.displayName && "chat-receiver"}`}>
+          <p
+            className={`chat-body-message ${
+              message.name === user.displayName && "chat-receiver"
+            }`}
+          >
             <span className="chat-body-message-name">{message.name}</span>
             {message.message}
             <span className="chat-body-message-timestamp">
